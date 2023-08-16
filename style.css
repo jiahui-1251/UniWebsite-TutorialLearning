@@ -1,0 +1,72 @@
+*{
+    /*Overwrite initial html style settings */
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.header{
+    /*vh: Relative to 1% of the height of the viewport */
+    min-height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url(images/banner.png);
+    background-position: center;
+    /*cover: resize background image to cover the entire container, even it has to sretch the image or cut a little bit off one of the edges */
+    background-size: cover;
+    position: relative;
+}
+
+nav{
+    display: flex;
+    padding: 2% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*fix width of logo */
+nav img{
+    width: 150px;
+}
+
+.nav-links{
+    /*flex 1: occupy all space in the row */
+    flex: 1;
+    text-align: right;
+}
+
+.nav-links ul li{
+    /*list-style none: no bullet */
+    list-style: none;
+    /*inline elements flow from one line to the next */
+    display: inline-block;
+    padding: 8px 12px;
+    /*relative: positioned normally, offset relative to itself, 
+    does not change position of other element */
+    position: relative;
+}
+
+.nav-links ul li a{
+    color: #fff;
+    text-decoration: none;
+    font-size: 13px;
+}
+
+.nav-links ul li::after{
+    /*
+    ::after: inserts sth after content of each selected element
+    content: used with after pseudo-elements to insert generated content 
+    margin auto: browser select suitable margin to use
+    */
+    content: '';
+    width: 0%;
+    height: 2px;
+    background: #f44336;
+    display: block;
+    margin: auto;
+    /*change property smoothly */
+    transition: 0.5s;
+}
+
+.nav-links ul li:hover::after{
+    width: 100%;
+}
